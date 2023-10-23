@@ -1,11 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-// import Login from './components/frontend/auth/Login';
-// import Register from './components/frontend/auth/Register';
 import axios from 'axios';
 import AdminPrivateRoute from './AdminPrivateRoute';
-// import Page403 from './errors/Page403';
-// import Page404 from './errors/Page404';
 import PublicRoute from './PublicRoute';
 
 axios.defaults.baseURL = "http://localhost:8000/";

@@ -28,20 +28,16 @@ function Navbar() {
     var AuthButtons = '';
     if(!localStorage.getItem('auth_token')){
         AuthButtons = (
-            <ul className="navbar-nav">
-                <li className="nav-item">
-                    <Link className="nav-link" to="/login">Login</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/register">Register</Link>
-                </li>
-            </ul>
+            <> 
+                <li className="nav-item mx-1">
+                    <Link className="nav-link fs-5" to='/login'><i className="fa fa-user"></i> Signin</Link>
+                </li>    
+            </>
         );
-
     }else{
         AuthButtons = (
             <li className="nav-item">
-                <button type='button' onClick={logoutSubmit} className="nav-link btn btn-danger btn-sm bg-danger text-white" to="/logout">Logout</button>
+                <button type='button' onClick={logoutSubmit} className="btn btn-warning btn-outline-none fs-6" to="/logout"><i className="fa fa-sign-out"></i>Logout</button>
             </li>
         );
     }
@@ -51,28 +47,44 @@ function Navbar() {
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
                 <div className="container">
-                    <Link className="navbar-brand" to="#">Navbar</Link>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
+                    <Link className="navbar-brand fw-bold" to="/"> <div className="fs-3">Acommerce</div> </Link>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
                     </button>
+
                     <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0 ">
-                            <li className="nav-item active">
-                                <Link className="nav-link" to="/">Home</Link>
+                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center justify-content-end">
+                            
+                            <li className="nav-item mx-1">
+                                <div type="button" className="nav-link fs-5" data-toggle="modal" data-target="#exampleModal">
+                                    <i className="fa fa-search"></i> Search
+                                </div>
                             </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/about">About</Link>
+
+                                <div className="modal fade searchModal" id="exampleModal" tabIndex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div className="modal-dialog" role="document">
+                                        <div className="modal-content">
+                                                
+                                            <div className="modal-body">
+                                                <form className="form-inline d-flex align-items-center justify-content-center m-auto">
+                                                    <input className="form-control m-auto text-light" type="search" placeholder="Search for Products, Brands & more" aria-label="Search" />
+                                                    <button className="btn btn-dark btn-lg my-sm-0" type="submit"><i className="fa fa-search"></i></button>
+                                                    
+                                                </form>
+                                            </div>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            <li className="nav-item mx-1">
+                                <Link className="nav-link fs-5" to="/cart"><i className='fa fa-cart-plus'></i> Cart</Link>
                             </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/contact">Contact</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/collections">Collections</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/cart">Cart</Link>
-                            </li>
+
                             {AuthButtons}
+
+                            
                         </ul>
                     </div>
                 </div>

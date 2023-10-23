@@ -12,7 +12,7 @@ function AdminPrivateRoute({ ...rest }) {
 
 
     useEffect(() => {
-        axios.get(`/api/checkingAuthenticated`).then(res => {
+        axios.get(`/api/checkingAuthenticated`).then(res=>{
             if(res.status === 200){
                 setAuthenticated(true);
             }
@@ -28,23 +28,22 @@ function AdminPrivateRoute({ ...rest }) {
 
      axios.interceptors.response.use(undefined, function axiosRetryInterceptor(err) {
         if(err.response.status === 401){
-            swal("Unauthorized", err.response.data.message, 'warning').then( () => {
-                return navigate('/login');
+            swal("Unauthorized", err.response.data.message, 'warning').then(() => {
+                return navigate('/');
             });
-
         }
         return Promise.reject(err);
      });
 
-     axios.interceptors.response.use( function (response){
+     axios.interceptors.response.use(function(response){
         return response;
-     }, function (error){
+     }, function(error){
         if(error.response.status === 403){
-            swal("Forbidden", error.response.data.message, 'warning').then( () => {
+            swal("Forbidden", error.response.data.message, 'warning').then(() => {
                 return navigate('/403');
             }); 
         }else if(error.response.status === 404){
-            swal("404 Error", 'Url/Page Not Found', 'warning').then( () => {
+            swal("404 Error", 'Url/Page Not Found', 'warning').then(() => {
                 return navigate('/404');
             }); 
         } 
@@ -58,7 +57,7 @@ function AdminPrivateRoute({ ...rest }) {
         return <MasterLayout />;
        
     } else {
-        return <Navigate to="/login" />;
+        return <Navigate to="/" />;
     }
 }
 

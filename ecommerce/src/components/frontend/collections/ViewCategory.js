@@ -22,23 +22,17 @@ function ViewCategory() {
     }
   }, []);
 
-  if(loading){
-    return <h4>Loading Categories...</h4>
-  }else{
+  if(!loading){
     var showCategoryList = '';
     showCategoryList = category.map((item, idx)=>{
       return (
-        <div className="col-md-4" key={idx}>
-          <div className="card">
-            <Link to=''>
-              <img src='' alt={item.name} className='w-100' />
-            </Link>
+        <div className="col-md-2" key={idx}>
+          <Link to={`/collections/${item.slug}`} className="text-decoration-none shadow d-flex flex-wrap pt-1 bg-light text-dark">
+              {/* <img src='' alt={item.name} className='w-100 m-auto text-center border' /> */}
             <div className="card-body">
-              <Link to={`${item.slug}`}>
-                <h5>{item.name}</h5>
-              </Link>
+                <h6 className='text-center'>{item.name}</h6>
             </div>
-          </div>
+          </Link>
         </div>
       )
     })
@@ -48,13 +42,13 @@ function ViewCategory() {
 
   return (
     <div>
-      <div className="py-3 bg-warning">
+      {/* <div className="py-3 bg-warning">
         <div className="container">
-          <h6>Collections</h6>
+          <h6 className='fs-5'>Collections</h6>
         </div>
-      </div>
-      <div className="py-3">
-        <div className="container">
+      </div> */}
+      <div className="py-3 bg-warning">
+        <div className="container-fluid">
           <div className="row">
             {showCategoryList}
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route} from 'react-router-dom';
 import Navbar from './Navbar';
 import publicRouteList from '../../routes/PublicRouteList';
+import Footer from '../../components/frontend/Footer';
 
 
 const FrontendLayout = () => {
@@ -22,7 +23,8 @@ const FrontendLayout = () => {
                                           
                     </Routes>
             </div>
-        </div>
+        <Footer />
+    </div>
   );
 };
 

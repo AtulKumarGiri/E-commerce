@@ -8,6 +8,7 @@ use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\FrontendController;
 use App\Http\Controllers\API\CartController;
 use App\Http\Controllers\API\CheckoutController;
+use App\Http\Controllers\API\OrderController;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
@@ -36,7 +37,9 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
     Route::put('/update-category/{id}', [CategoryController::class, 'update']);
     Route::delete('/delete-category/{id}', [CategoryController::class, 'destroy']);
     Route::get('/all-category', [CategoryController::class, 'allCategory']);
-    // Route::post('/logout', [AuthController::class, 'logout']);
+
+    // Orders 
+    Route::get('admin/orders', [OrderController::class, 'index']);
 
     // Products
     Route::post('store-product', [ProductController::class, 'store']);

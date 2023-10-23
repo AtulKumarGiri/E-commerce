@@ -3,7 +3,7 @@ import '../../assets/admin/css/styles.css';
 import '../../assets/admin/js/scripts';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
-import Footer from './Footer';
+// import Footer from './Footer';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import  routes  from '../../routes/routes';
 
@@ -36,7 +36,7 @@ const MasterLayout = () => {
                         />                   
                     </Routes>
                 </main>
-                <Footer />
+                {/* <Footer /> */}
             </div>
         </div>
     </div>

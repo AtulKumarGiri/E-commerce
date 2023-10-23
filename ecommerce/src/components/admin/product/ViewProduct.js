@@ -46,7 +46,7 @@ function ViewProduct() {
   }
 
   return (
-    <div className='card px-4 mt-3'>
+    <div className='card mx-4 mt-3'>
       <div className="card-header">
         <h4>
           View Products

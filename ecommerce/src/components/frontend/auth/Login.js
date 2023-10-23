@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Navbar from '../../../layouts/frontend/Navbar';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';

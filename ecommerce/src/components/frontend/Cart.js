@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import axios from 'axios';
 
@@ -33,7 +33,7 @@ function Cart() {
             isMounted = false;
         };
 
-    }, []);
+    }, [navigate]);
 
     const handleIncrement = (cart_id) => {
         setCart(cart => 
@@ -99,7 +99,7 @@ function Cart() {
 
                     totalCartPrice += item.product.selling_price * item.product_qty;
                     return(
-                        <tr key={idx}>
+                        <tr key={idx} className='bg-warning'>
                             <td width='10%'>
                                 <img src={`http://localhost:8000/${item.product.image}`} alt={item.product.name} width="50px" height="50px" />
                             </td>
@@ -124,17 +124,17 @@ function Cart() {
         </table>
     </div>
     <div className="row">
-    <div className="col-md-7"></div>
-                    <div className="col-md-5">
+    <div className="col-md-8"></div>
+                    <div className="col-md-4">
                         <div className="card card-body mt-3">
-                            <h4>Sub Total: 
+                            <h5>Sub Total: 
                                 <span className="float-end">{totalCartPrice}</span>
-                            </h4>
-                            <h4>Grand Total: 
+                            </h5>
+                            <h5>Grand Total: 
                                 <span className="float-end">{totalCartPrice}</span>
-                            </h4>
+                            </h5>
                             <hr />
-                            <Link to='/checkout' className="btn btn-primary btn-sm float-end" >Proceed to checkout</Link>
+                            <Link to='/checkout' className="btn btn-primary btn-sm w-50 m-auto" >Proceed to checkout</Link>
                         </div>
                     </div>
     </div>
@@ -142,22 +142,22 @@ function Cart() {
     }else{
         cart_HTML = <div>
             <div className="card card-body py-5 text-center shadow-sm">
-                <h4 className='text-center'>Your Shopping Cart is Empty</h4>
+                <h4 className='text-center fs-5'>Your Shopping Cart is Empty</h4>
             </div>
         </div>
     }
 
   return (
     <div>
-        <div className="py-3 bg-warning">
+        {/* <div className="py-3 bg-warning">
             <div className="container">
-              <h6>Home / Cart</h6>
+              <h6 className='fs-5'>Home / Cart</h6>
             </div>
-        </div>
-        <div className="py-4">
-            <div className="container">
+        </div> */}
+        <div className="py-0">
+            <div className="container p-3 my-0">
                 <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-md-12 card py-3">
                         {cart_HTML}
                     </div>
                     

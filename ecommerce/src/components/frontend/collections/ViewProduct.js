@@ -30,7 +30,7 @@ function ViewProduct() {
                 }
                 else if(res.data.status === 404){
                     swal('Warning', res.data.message, 'error');
-                    return navigate('/collections');
+                    return navigate('/');
                 }
             }
         })
@@ -39,7 +39,7 @@ function ViewProduct() {
             isMounted = false;
         };
 
-    }, [slug]);
+    }, [slug, navigate]);
 
     if(loading){
         return <h4>Loading Products....</h4>
@@ -65,7 +65,7 @@ function ViewProduct() {
             });
         }else{
             showProductList = 
-            <div className="col-md-12">
+            <div className=" card card-body py-5 text-center shadow-sm">
                 <h4>No product Available for {category.name}</h4>
             </div>
         }
@@ -74,11 +74,11 @@ function ViewProduct() {
 
   return (
     <div>
-      <div className="py-3 bg-warning">
-        <div className="container">
+      {/* <div className="bg-warning">
+         <div className="container">
           <h6>Collection/{category.name}</h6>
-        </div>
-      </div>
+        </div> 
+      </div> */}
       <div className="py-3">
         <div className="container">
           <div className="row">

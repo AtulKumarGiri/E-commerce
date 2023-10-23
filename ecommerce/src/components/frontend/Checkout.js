@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { Elements, StripeProvider } from 'react-stripe-elements';
 import swal from 'sweetalert';
 import axios from 'axios';
-import PaymentForm from '../../stripe/PaymentForm';
-// import stripeConfig from '../../stripe/stripeConfig';
 
 
 function Checkout() {
@@ -49,7 +46,7 @@ function Checkout() {
             isMounted = false;
         };
 
-    }, []);
+    }, [navigate]);
 
 
     const handleInput = (e) => {
@@ -91,10 +88,33 @@ function Checkout() {
                 });                
                 break;
             
-            case 'stripe':
+            case 'razorpay':
                 axios.post(`/api/validate-order`, data).then(res=>{
                     if(res.data.status === 200){
                         setError([]);
+
+                        var options = {
+                            "key": "YOUR_KEY_ID",
+                            "amount": (totalCartPrice * 100), 
+                            "name": "Acommerce", 
+                            "description": "Thank you for purchasing with us",
+                            "image": "https://example.com/your_logo",
+                            "handler": function (response){
+                                alert(response.razorpay_payment_id);
+                                
+                            },
+                            "prefill": { 
+                                "name": data.firstname + data.lastname, 
+                                "email": data.email,
+                                "contact": data.phone   
+                            },
+                            "theme": {
+                                "color": "#3399cc"
+                            }
+                        };
+                        var rzp = new window.Razorpay(options);
+                        rzp.open();
+
                     }else if(res.data.status === 422){
                         swal("All fields are mandatory", "", 'error');
                         setError(res.data.errors);
@@ -113,7 +133,6 @@ function Checkout() {
     }
 
     var checkout_HTML = '';
-    const stripe = window.Stripe('pk_test_51O3Z7PSIbaKsbedCfgdUOKuuSWnyImmNVcDbMgHGyCZCPj6JswnywRlV6Cfn8n7fAEad95aLkso1rZlTX1ZHRaHJ00mo996mJT');
 
     if(cart.length > 0){
 
@@ -191,12 +210,9 @@ function Checkout() {
                                     </div>
                                     <div className="col-md-12">
                                         <div className="form-group text-end">
-                                            <button className="btn btn-primary" onClick={(e) => submitOrder(e, 'cod')}>Place Order</button>
-                                            <StripeProvider stripe={stripe}>
-                                                <Elements>
-                                                    <PaymentForm handlePayment={(e)=>submitOrder(e, 'stripe')} />
-                                                </Elements>
-                                            </StripeProvider>
+                                            <button className="btn btn-primary m-2" onClick={(e) => submitOrder(e, 'cod')}>Place Order</button>
+                                            <button className="btn btn-primary m-auto" onClick={(e) => submitOrder(e, 'razorpay')}>Pay Online</button>
+                                            
                                         </div>
                                     </div>
                                 </div>

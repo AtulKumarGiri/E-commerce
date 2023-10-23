@@ -1,0 +1,12 @@
+FRONTEND 
+Files Created Home, About, Contact, Footer, FAQ, Cancellation and Refund, Privacy, Security, Help Center, Forget Password
+
+TASK DONE
+Footer done, FAQ Done
+
+ADMIN 
+Notificaiton, Users, Profile, Forget Password, Dashboard
+Add functionality to upload banner pic from the Admin Panel.
+
+TASK DONE
+Dashboard Modified

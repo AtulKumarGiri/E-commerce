@@ -9,14 +9,30 @@ import ViewCategory from '../components/frontend/collections/ViewCategory';
 import ViewProduct from '../components/frontend/collections/ViewProduct';
 import ProductDetails from '../components/frontend/collections/ProductDetails';
 import Cart from '../components/frontend/Cart';
+
 import Checkout from '../components/frontend/Checkout';
+import Faq from '../components/frontend/Faq';
+import CancellationRefund from '../components/frontend/CancellationRefund';
+import Privacy from '../components/frontend/Privacy';
+import HelpCenter from '../components/frontend/HelpCenter';
+import Security from '../components/frontend/Security';
+import ThankYou from '../components/frontend/ThankYou';
+import Terms from '../components/frontend/Terms';
+
 
 const publicRouteList = [
     { path: '/', exact:true, name:'Home', element: <Home /> },
     { path: '/about', exact:true, name:'About', element: <About /> },
     { path: '/contact', exact:true, name:'Contact', element: <Contact /> },
+    { path: '/privacy', exact:true, name:'Privacy', element: <Privacy /> },
+    { path: '/help-center', exact:true, name:'HelpCenter', element: <HelpCenter /> },
+    { path: '/security', exact:true, name:'Security', element: <Security /> },
+    { path: '/frequently-asked-questions', exact:true, name:'Faq', element: <Faq /> },
+    { path: '/terms-of-use', exact:true, name:'Terms', element: <Terms /> },
+    { path: '/cancellation-and-refund', exact:true, name:'CancellationRefund', element: <CancellationRefund /> },
     { path: '/cart', exact:true, name:'Cart', element: <Cart /> },
     { path: '/checkout', exact:true, name:'Checkout', element: <Checkout /> },
+    { path: '/thank-you', exact:true, name:'ThankYou', element: <ThankYou /> },
     { path: '/403', exact:true, name:'Page403', element: <Page403 /> },
     { path: '/404', exact:true, name:'Page404', element: <Page404 /> },
     { path: '/login', exact:true, name:'Login', element: <Login /> },

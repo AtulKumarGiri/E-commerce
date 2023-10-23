@@ -23,7 +23,7 @@ function EditCategory() {
             }
             setLoading(false);
         });
-    }, [id]);
+    }, [id, navigate]);
 
     const handleInput = (e) => {
         e.persist();

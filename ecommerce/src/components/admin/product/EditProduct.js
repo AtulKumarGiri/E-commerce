@@ -56,7 +56,7 @@ function EditProduct(props) {
         });
 
 
-    }, [id]);
+    }, [id, navigate]);
 
 
     const updateProduct = (e) => {

@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 
 function AddCategory() {
+
+    const navigate = useNavigate();
 
     const [categoryInput, setCategory] = useState({
         slug: '',
@@ -41,6 +43,7 @@ function AddCategory() {
             if(res.data.status === 200){
                 swal("Success", res.data.message, 'success');
                 document.getElementById('CATEGORY_FORM').reset();
+                return navigate('/admin/view-category');
             }else if(res.data.status === 400){
                 setCategory({...categoryInput, error_list:res.data.errors});
             }
