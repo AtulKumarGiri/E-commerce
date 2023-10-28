@@ -9,6 +9,7 @@ use App\Http\Controllers\API\FrontendController;
 use App\Http\Controllers\API\CartController;
 use App\Http\Controllers\API\CheckoutController;
 use App\Http\Controllers\API\OrderController;
+use App\Http\Controllers\API\UserController;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
@@ -40,6 +41,10 @@ Route::middleware(['auth:sanctum', 'isAPIAdmin'])->group(function () {
 
     // Orders 
     Route::get('admin/orders', [OrderController::class, 'index']);
+    
+    //USERS
+    Route::get('admin/users', [UserController::class, 'index']);
+    Route::get('admin/users/{id}', [UserController::class, 'viewUser']);
 
     // Products
     Route::post('store-product', [ProductController::class, 'store']);

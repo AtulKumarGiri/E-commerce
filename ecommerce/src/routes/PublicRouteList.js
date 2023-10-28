@@ -18,7 +18,10 @@ import HelpCenter from '../components/frontend/HelpCenter';
 import Security from '../components/frontend/Security';
 import ThankYou from '../components/frontend/ThankYou';
 import Terms from '../components/frontend/Terms';
-
+import ForgetPassword from '../components/frontend/auth/ForgetPassword';
+import ResetPassword from '../components/frontend/auth/ResetPassword';
+import VerifyOTP from '../components/frontend/auth/VerifyOTP';
+import Mobile from '../components/frontend/products/mobile';
 
 const publicRouteList = [
     { path: '/', exact:true, name:'Home', element: <Home /> },
@@ -36,10 +39,14 @@ const publicRouteList = [
     { path: '/403', exact:true, name:'Page403', element: <Page403 /> },
     { path: '/404', exact:true, name:'Page404', element: <Page404 /> },
     { path: '/login', exact:true, name:'Login', element: <Login /> },
+    { path: '/forget-password', exact:true, name:'ForgetPassword', element: <ForgetPassword /> },
+    { path: '/otp-verification', exact:true, name:'VerifyOTP', element: <VerifyOTP /> },
+    { path: '/reset-password', exact:true, name:'ResetPassword', element: <ResetPassword /> },
     { path: '/register', exact:true, name:'Register', element: <Register /> },
     { path: '/collections', exact:true, name:'ViewCategory', element: <ViewCategory /> },
     { path: '/collections/:slug', exact:true, name:'ViewProduct', element: <ViewProduct /> },
     { path: '/collections/:category_slug/:product_slug', exact:true, name:'ProductDetails', element: <ProductDetails /> },
+    { path: '/collections/mobile/:product_slug', exact:true, name:'Mobile', element: <Mobile /> },
   ];
   
 export default publicRouteList;

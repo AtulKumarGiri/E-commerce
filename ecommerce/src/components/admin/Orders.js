@@ -25,18 +25,13 @@ function Orders() {
         return <h4>Loading Orders....</h4>
     }else{
         display_orders = orders.map( (item) => {
-        //   if(item.status === 0){
-        //     productStatus = 'Shown';
-        //   }else if(item.status === '1'){
-        //     productStatus = 'Hidden';
-        //   }
           return (
             <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.tracking_no}</td>
               <td>{item.phone}</td>
               <td>{item.email}</td>
-              {/* <td><img src={`http://localhost:8000/${item.image}`} alt={item.name} width="50px" /></td> */}
+              <td><img src={`http://localhost:8000/${item.image}`} alt={item.name} width="50px" /></td>
               <td><Link to={`/admin/view-order/${item.id}`} className='btn btn-success btn-sm'>View</Link></td>
              </tr>
           )
@@ -59,6 +54,7 @@ function Orders() {
                     <th>Tracking Number</th>
                     <th>Phone No.</th>
                     <th>Email</th>
+                    <th>Image</th>
                     <th>Action</th>
                   </tr>
                 </thead>

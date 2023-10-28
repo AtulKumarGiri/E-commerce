@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import axios from 'axios';
 import AdminPrivateRoute from './AdminPrivateRoute';
 import PublicRoute from './PublicRoute';
+import ScrollTop from './ScrollTop';
 
 axios.defaults.baseURL = "http://localhost:8000/";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -20,19 +21,10 @@ function App() {
   return (
     <Router>
       <div className='App'>
+          <ScrollTop />
         <Routes>
-          {/* <Route exact path="/"  element={<Home />} />
-          <Route exact path="/about"  element={<About />} />
-          <Route exact path="/contact"  element={<Contact />} /> */}
-
           <Route path="/admin/*" name="Admin" element={<AdminPrivateRoute />} /> 
           <Route path="/*" name="Home" element={<PublicRoute />}/>
-         
-
-          {/* <Route path="/403"  element={<Page403 />} /> */}
-          {/* <Route path="/404"  element={<Page404 />} /> */}
-          {/* <Route path="/login" element={localStorage.getItem('auth_token') ? <Navigate to="/" /> : <Login /> } />  */}
-          {/* <Route path="/register" element={localStorage.getItem('auth_token') ? <Navigate to="/" /> : <Register />} />  */}
         </Routes>
       </div>
     </Router>

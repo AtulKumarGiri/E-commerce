@@ -43,6 +43,12 @@ hr{
 .searchModal .modal-content input[type="search"]::placeholder{ 
     color: #fff;
 }
+
+
+.carousel .carousel-indicators{
+    display: none !important;
+}
+
 .footer{
     position:static;
     bottom: 0 !important;
@@ -51,3 +57,7 @@ hr{
 .footer-heading, .copy p{
     color: rgb(124, 124, 124);
 }
+.faq p, .cancellation-policy p, .return-policy p, .privacy p, .privacy li, .terms p, .terms li{
+    font-size: 14px;
+}
+

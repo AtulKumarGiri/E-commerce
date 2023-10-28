@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function Register() {
@@ -80,6 +80,7 @@ function Register() {
                                     <button type='submit' className="btn btn-primary">Register</button>
                                 </div>
                             </form>
+                            <Link to='/login' className="text-muted nav-link text-dark">Already Registered? Signin</Link>
                         </div>
                     </div>
                 </div>

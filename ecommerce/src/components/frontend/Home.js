@@ -1,6 +1,7 @@
 import React from 'react'
 import ViewCategory from '../../components/frontend/collections/ViewCategory';
 import Banner from './Banner';
+import Mobile from './products/mobile';
 
 
 function Home() {
@@ -10,6 +11,7 @@ function Home() {
       <ViewCategory />
       <div className="container-fluid p-0">
         <Banner />
+        <Mobile />
       </div>
     </>
   )

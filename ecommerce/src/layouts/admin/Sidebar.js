@@ -1,31 +1,7 @@
-import axios from 'axios';
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import swal from 'sweetalert';
-
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
-
-    const history = useNavigate();
-    
-    const logoutSubmit = (e) => {
-        e.preventDefault();
-
-        axios.post(`/api/logout`).then(res => {
-            if(res.data.status === 200){
-                localStorage.removeItem('auth_token');
-                localStorage.removeItem('auth_name');
-                swal('Success', res.data.message, 'success');
-                history('/');
-            }else {
-                console.error('Logout failed:', res.data.message);
-              }
-            })
-            .catch(error => {
-              console.error('Logout failed:', error);
-        });
-    }
-
 
   return (
     <nav className="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -71,19 +47,29 @@ const Sidebar = () => {
                         <Link className="nav-link text-white" to="/admin/view-product">View Product</Link> 
                     </nav>
                 </div>
-              
-                <Link className="nav-link text-white" to="/admin/users">
+
+
+                <Link className="nav-link text-white collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
                     <div className="sb-nav-link-icon"><i className="fa fa-users"></i></div>
                     Users
+                    <div className="sb-sidenav-collapse-arrow"><i className="fa fa-angle-down"></i></div>
                 </Link> <hr />
+                <div className="collapse" id="collapseUser" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <nav className="sb-sidenav-menu-nested nav">
+                        <Link className="nav-link text-white" to="/admin/add-sub-admin">Add Sub Admin</Link> 
+                        <Link className="nav-link text-white" to="/admin/users">View Users</Link> 
+                    </nav>
+                </div>
+
+                
+
                 
             </div>
         </div>
-        <Link to="/logout" className='btn btn-md text-light fw-bolder sb-sidenav-footer' onClick={logoutSubmit}>
-            <i className="fa fa-sign-out"></i>Logout
-        </Link>
     </nav>
   );
+
+
 };
 
 export default Sidebar;

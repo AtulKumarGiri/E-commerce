@@ -49,14 +49,14 @@ function ViewProduct() {
 
             showProductList = product.map( (item, idx) =>{
                 return(
-                    <div className="col-md-3" key={idx}>
+                    <div className="col-md-2" key={idx}>
                         <div className="card">
-                            <Link to={`/collections/${item.category.slug}/${item.slug}`}>
-                                <img src={`http://localhost:8000/${item.image}`} alt={item.name} className="w-100" />
+                            <Link to={`/collections/${item.category.slug}/${item.slug}`} className='text-center pt-4'>
+                                <img src={`http://localhost:8000/${item.image}`} alt={item.name} width='120px' height='120px' />
                             </Link>
                             <div className="card-body">
                                 <Link to={`/collections/${item.category.slug}/${item.slug}`}>
-                                    <h5>{item.name}</h5>
+                                    <h6 className='text-center'>{item.name}</h6>
                                 </Link>
                             </div>
                         </div>

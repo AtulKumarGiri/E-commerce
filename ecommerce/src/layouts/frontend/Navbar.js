@@ -1,11 +1,19 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import swal from 'sweetalert';
 
 
 function Navbar() {
     const history = useNavigate();
+    const [userName, setUserName] = useState(null);
+
+    useEffect(() => {
+        const storedUserName = localStorage.getItem('auth_name');
+        if (storedUserName) {
+            setUserName(storedUserName);
+        }
+    }, []);
     
     const logoutSubmit = (e) => {
         e.preventDefault();
@@ -29,15 +37,30 @@ function Navbar() {
     if(!localStorage.getItem('auth_token')){
         AuthButtons = (
             <> 
-                <li className="nav-item mx-1">
-                    <Link className="nav-link fs-5" to='/login'><i className="fa fa-user"></i> Signin</Link>
-                </li>    
+                <li className="nav-item dropdown">
+                    <Link className="nav-link dropdown-toggle mx-3" id="navbarDropdown" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i className="fas fa-user fa-fw"></i></Link>
+                    <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><Link className="dropdown-item fs-6" to="/login"><i className="fa fa-sign-in"></i>Signin</Link></li>
+                        <li><Link className="dropdown-item fs-6" to="/register"><i className="fa fa-sign-out"></i>Signup</Link></li>
+                    </ul>
+                </li>
             </>
         );
     }else{
         AuthButtons = (
-            <li className="nav-item">
-                <button type='button' onClick={logoutSubmit} className="btn btn-warning btn-outline-none fs-6" to="/logout"><i className="fa fa-sign-out"></i>Logout</button>
+            <li className="nav-item dropdown">
+            <Link className="nav-link dropdown-toggle mx-3" id="navbarDropdown" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i className="fas fa-user fa-fw"></i>{userName ? userName : "Account Name"}</Link>
+            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                
+                <li><Link className="dropdown-item text-dark" to="/account">My Account</Link></li>
+                <li><Link className="dropdown-item text-dark" to="/reset-password">Change Password</Link></li>
+                {/* {userName === 'Admin' && (
+                    <li><Link className="dropdown-item text-dark" to="/admin/dashboard">View Dashboard</Link></li>
+                )} */}
+                <li><hr className="dropdown-divider" /></li>
+                <li><Link className="dropdown-item text-danger fs-6" to="/logout" onClick={logoutSubmit}><i className="fa fa-sign-out"></i>Logout</Link></li>
+
+            </ul>
             </li>
         );
     }

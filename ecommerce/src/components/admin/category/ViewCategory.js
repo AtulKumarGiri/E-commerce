@@ -62,8 +62,10 @@ function ViewCategory() {
     <div className="container px-4">
         <div className='card mt-4'>
             <div className="card-header">
-                <h4>Category List</h4>
+                <h4>Category List
+
                     <Link to='/admin/add-category' className='btn btn-primary btn-sm float-end'>Add Category</Link>
+                </h4>
             </div>
 
             <div className="card-body">

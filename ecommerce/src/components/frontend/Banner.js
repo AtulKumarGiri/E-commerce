@@ -25,6 +25,13 @@ const Banner = () => {
           alt="Third slide"
         />
       </Carousel.Item>
+      {/* <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="./assets/images/banner/banner4.webp"
+          alt="Fourth slide"
+        />
+      </Carousel.Item> */}
     </Carousel>
   );
 };

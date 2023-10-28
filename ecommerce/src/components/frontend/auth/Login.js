@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 
 function Login() {
@@ -83,6 +83,9 @@ function Login() {
                                     <button type='submit' className="btn btn-primary">Login</button>
                                 </div>
                             </form>
+                            <Link to='/register' className="text-muted nav-link text-dark">New at Accomerce? Create an account</Link>
+                            <Link to='/forget-password' className="text-muted nav-link text-dark">Forget Password</Link>
+                            
                         </div>
                     </div>
                 </div>

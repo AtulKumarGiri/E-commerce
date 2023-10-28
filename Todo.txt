@@ -1,8 +1,9 @@
 FRONTEND 
-Files Created Home, About, Contact, Footer, FAQ, Cancellation and Refund, Privacy, Security, Help Center, Forget Password
+Fetching Products to Home.
 
 TASK DONE
-Footer done, FAQ Done
+Footer done, FAQ Done, Cancellation And Refund Done,  Privacy, Security, Terms, Help Center,  About, Contact,
+Forget Password, Verify email, Reset Password -> Fields, routes, integration and Files Created
 
 ADMIN 
 Notificaiton, Users, Profile, Forget Password, Dashboard

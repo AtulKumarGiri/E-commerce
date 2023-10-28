@@ -26,7 +26,7 @@ function ViewCategory() {
     var showCategoryList = '';
     showCategoryList = category.map((item, idx)=>{
       return (
-        <div className="col-md-2" key={idx}>
+        <div className="col-md-2 mb-2" key={idx}>
           <Link to={`/collections/${item.slug}`} className="text-decoration-none shadow d-flex flex-wrap pt-1 bg-light text-dark">
               {/* <img src='' alt={item.name} className='w-100 m-auto text-center border' /> */}
             <div className="card-body">
