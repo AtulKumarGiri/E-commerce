@@ -8,10 +8,7 @@ function Privacy() {
       <div className="container mb-5 py-3 px-4 bg-white privacy">
         <h4 className="text-center">Privacy Policy</h4>
 
-      
-      {/* <h1>Privacy Policy</h1> */}
-
-      <p>This Privacy Policy outlines the types of personal information that [Your Company Name] collects and how it is used. Your use of our website and services indicates your agreement with this policy. Please read this policy carefully.</p>
+        <p>This Privacy Policy outlines the types of personal information that [Your Company Name] collects and how it is used. Your use of our website and services indicates your agreement with this policy. Please read this policy carefully.</p>
 
       <h6>Information We Collect</h6>
       <p>We may collect the following types of information when you visit our website or use our services:</p>
