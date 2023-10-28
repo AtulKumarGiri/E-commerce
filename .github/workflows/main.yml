@@ -1,19 +1,21 @@
-name: Publich Website to CPanel
-on:
-    push:
-        branches:
-            - main
+on: 
+  push:
+      branches:
+          - main
+name: Production Deploy
 jobs:
-    FTP-Deploy-Action:
-        name: FTP-Deploy-Action
-        runs-on: unbuntu-latest
-        steps:
-        - uses: actions/checkout@v2.1.0
-        with:
+  FTP-Deploy-Action:
+    name:  FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
         fetch-depth: 2
-        - name: FTP-Deploy-Action
-          uses: SamKirland/FTP-Deploy-Action@3.1.1
-          with: 
-            ftp-server: ${{ secrets.FTP_SERVER }}
-            ftp-username: ${{ secrets.FTP_USERNAME }}
-            ftp-password: ${{ secrets.FTP_PASSWORD }}
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        ftp-server: ${{ secrets.FTP_SERVER }}
+        ftp-username: ${{ secrets.FTP_USERNAME }}
+        ftp-password: ${{ secrets.FTP_PASSWORD }}
+
+    
