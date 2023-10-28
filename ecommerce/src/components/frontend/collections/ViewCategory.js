@@ -42,11 +42,6 @@ function ViewCategory() {
 
   return (
     <div>
-      {/* <div className="py-3 bg-warning">
-        <div className="container">
-          <h6 className='fs-5'>Collections</h6>
-        </div>
-      </div> */}
       <div className="py-3 bg-warning">
         <div className="container-fluid">
           <div className="row">

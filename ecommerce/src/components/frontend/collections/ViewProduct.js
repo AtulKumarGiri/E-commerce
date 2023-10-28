@@ -17,8 +17,6 @@ function ViewProduct() {
     useEffect(()=>{
         let isMounted = true;
 
-        // const product_slug = props.match.params.slug;
-
         axios.get(`/api/fetchProducts/${slug}`).then(res=>{
             if(isMounted){
                 if(res.data.status === 200){
